@@ -18,10 +18,10 @@ public class UserController {
         return service.saveUser(user);
     }
 
-    @PostMapping("/addUsers")
-    public List<User> addUsers (@RequestBody List<User> users){
-        return service.saveUsers(users);
-    }
+//    @PostMapping("/addUsers")
+//    public List<User> addUsers (@RequestBody List<User> users){
+//        return service.saveUsers(users);
+//    }
 
     @GetMapping("/users")
     public List<User> findAllUsers (){
@@ -33,7 +33,7 @@ public class UserController {
         return service.getUserById(id);
     }
 
-    @PostMapping ("update")
+    @PutMapping ("update")
     public User updateUser (@RequestBody User user) {
         return service.updateUser(user);
     }

@@ -13,15 +13,15 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
-    //POST
+    //POST - create a user
     public User saveUser (User user){
         return repository.save(user);
     }
 
     //POST save all users
-    public List<User> saveUsers (List<User> users){
-        return repository.saveAll(users);
-    }
+//    public List<User> saveUsers (List<User> users){
+//        return repository.saveAll(users);
+//    }
 
     //GET - get all users
     public List<User> getUsers (){
@@ -42,13 +42,14 @@ public class UserService {
         existingUser.setLast_name(user.getLast_name());
         existingUser.setEmail(user.getEmail());
         existingUser.setGender(user.getGender());
+        existingUser.setAddress(user.getAddress());
         return repository.save(existingUser);
     }
 
     //Delete by id
     public String deleteUser(int id){
         repository.deleteById(id);
-        return "user removed"+id;
+        return "user " + id + " removed";
     }
 
 }

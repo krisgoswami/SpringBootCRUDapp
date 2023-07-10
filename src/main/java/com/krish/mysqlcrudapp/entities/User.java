@@ -11,12 +11,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "mock_data")
+@Table(name = "thesisdb")
 public class User {
+
     @Id
     private int id;
     private String first_name;
     private String last_name;
     private String email;
     private String gender;
+    private String address;
 }
