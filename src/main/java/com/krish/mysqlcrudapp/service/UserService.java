@@ -34,16 +34,31 @@ public class UserService {
     }
 
     //UPDATE
-    public User updateUser (User user){
-        User existingUser = repository.findById(user.getId()).orElse(null);
-        assert existingUser != null;
+//    public User updateUser (User user){
+//        User existingUser = repository.findById(user.getId()).orElse(null);
+//        assert existingUser != null;
+////        existingUser.setId(user.getId());
+//        existingUser.setFirst_name(user.getFirst_name());
+//        existingUser.setLast_name(user.getLast_name());
+//        existingUser.setEmail(user.getEmail());
+//        existingUser.setGender(user.getGender());
+//        existingUser.setAddress(user.getAddress());
+//        return repository.save(existingUser);
+//    }
+    public User updateUser (int id, User user){
+        User existingUser = repository.findById(id).orElse(null);
+        if(existingUser != null) {
 //        existingUser.setId(user.getId());
-        existingUser.setFirst_name(user.getFirst_name());
-        existingUser.setLast_name(user.getLast_name());
-        existingUser.setEmail(user.getEmail());
-        existingUser.setGender(user.getGender());
-        existingUser.setAddress(user.getAddress());
-        return repository.save(existingUser);
+            existingUser.setFirst_name(user.getFirst_name());
+            existingUser.setLast_name(user.getLast_name());
+            existingUser.setEmail(user.getEmail());
+            existingUser.setGender(user.getGender());
+            existingUser.setAddress(user.getAddress());
+            return repository.save(existingUser);
+        }
+        else {
+            return  null;
+        }
     }
 
     //Delete by id
